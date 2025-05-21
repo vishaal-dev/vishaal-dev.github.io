@@ -92,7 +92,7 @@ class AppConstants {
       'description': 'A comprehensive mobile application built with Flutter for both Android and iOS platforms. '
           'The app features a modern UI, real-time data synchronization, and seamless user experience.',
       'role': 'Lead Flutter Developer',
-      'technologies': ['Flutter', 'Dart', 'GetX', 'Firebase', 'RESTFUL APIs'],
+      'technologies': ['Flutter', 'Dart', 'GetX', 'Firebase', 'REST APIs'],
       'image': 'assets/images/coffeeweb_app.png'
     }
   ];

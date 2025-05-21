@@ -248,8 +248,8 @@ class _AboutSectionState extends State<AboutSection> {
     final int crossAxisCount = ResponsiveHelper.isMobile(context) 
         ? 1 
         : ResponsiveHelper.isTablet(context) 
-            ? 2 
-            : 3;
+            ? 1
+            : 2;
     
     return GridView.builder(
       shrinkWrap: true,

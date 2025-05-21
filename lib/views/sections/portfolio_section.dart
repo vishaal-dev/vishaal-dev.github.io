@@ -85,7 +85,7 @@ class _PortfolioSectionState extends State<PortfolioSection> {
     final int crossAxisCount = ResponsiveHelper.isMobile(context) 
         ? 1 
         : ResponsiveHelper.isTablet(context) 
-            ? 2 
+            ? 1
             : 2;
     
     return GridView.builder(
@@ -93,9 +93,9 @@ class _PortfolioSectionState extends State<PortfolioSection> {
       physics: const NeverScrollableScrollPhysics(),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: crossAxisCount,
-        crossAxisSpacing: 24,
+        crossAxisSpacing: 14,
         mainAxisSpacing: 24,
-        childAspectRatio: ResponsiveHelper.isMobile(context) ? 0.8 : 1.0,
+        childAspectRatio: ResponsiveHelper.isMobile(context) ? 1.0 : 1.0,
       ),
       itemCount: AppConstants.projects.length,
       itemBuilder: (context, index) {

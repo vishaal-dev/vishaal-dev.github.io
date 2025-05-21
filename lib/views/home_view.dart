@@ -113,14 +113,7 @@ class HomeView extends StatelessWidget {
                                     _buildNavItem(context, 'Services', 3, appController),
                                     _buildNavItem(context, 'Contact', 4, appController),
                                     const SizedBox(width: 16),
-                                    IconButton(
-                                      icon: Icon(
-                                        themeController.isDarkMode.value
-                                            ? Icons.light_mode
-                                            : Icons.dark_mode,
-                                      ),
-                                      onPressed: () => themeController.toggleTheme(),
-                                    ),
+                                    _buildThemeToggleButton(themeController),
                                   ],
                                 ),
                               
@@ -128,14 +121,7 @@ class HomeView extends StatelessWidget {
                               if (ResponsiveHelper.isMobile(context))
                                 Row(
                                   children: [
-                                    IconButton(
-                                      icon: Icon(
-                                        themeController.isDarkMode.value
-                                            ? Icons.light_mode
-                                            : Icons.dark_mode,
-                                      ),
-                                      onPressed: () => themeController.toggleTheme(),
-                                    ),
+                                    _buildThemeToggleButton(themeController),
                                     IconButton(
                                       icon: const Icon(Icons.menu),
                                       onPressed: () => _showMobileMenu(context, appController),
@@ -249,5 +235,65 @@ class HomeView extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Widget _buildThemeToggleButton(ThemeController controller) {
+    return Obx(() {
+      final isDark = controller.isDarkMode.value;
+      return GestureDetector(
+        onTap: controller.toggleTheme,
+        child: AnimatedContainer(
+          duration: const Duration(milliseconds: 400),
+          curve: Curves.easeInOut,
+          width: 50,
+          height: 28,
+          padding: const EdgeInsets.all(4),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            color: isDark ? Colors.grey.shade800 : Colors.grey.shade300,
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.05),
+                blurRadius: 6,
+                offset: const Offset(0, 2),
+              ),
+            ],
+          ),
+          child: Stack(
+            children: [
+              AnimatedAlign(
+                duration: const Duration(milliseconds: 400),
+                alignment: isDark ? Alignment.centerRight : Alignment.centerLeft,
+                child: Container(
+                  width: 20,
+                  height: 20,
+                  decoration: const BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Colors.white,
+                  ),
+                  child: Center(
+                    child: AnimatedSwitcher(
+                      duration: const Duration(milliseconds: 300),
+                      transitionBuilder: (child, animation) {
+                        return FadeTransition(
+                          opacity: animation,
+                          child: ScaleTransition(scale: animation, child: child),
+                        );
+                      },
+                      child: Icon(
+                        isDark ? Icons.dark_mode : Icons.light_mode,
+                        key: ValueKey<bool>(isDark),
+                        color: isDark ? Colors.black : Colors.orange,
+                        size: 16,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      );
+    });
   }
 }

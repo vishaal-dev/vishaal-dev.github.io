@@ -128,6 +128,12 @@
       "languageVersion": "3.0"
     },
     {
+      "name": "responsive_card",
+      "rootUri": "file:///Users/vishal/.pub-cache/hosted/pub.dev/responsive_card-0.0.4",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
+    },
+    {
       "name": "sky_engine",
       "rootUri": "file:///Users/vishal/development/flutter/bin/cache/pkg/sky_engine",
       "packageUri": "lib/",
@@ -242,7 +248,7 @@
       "languageVersion": "3.6"
     }
   ],
-  "generated": "2025-05-20T12:57:22.492247Z",
+  "generated": "2025-05-21T11:45:01.851959Z",
   "generator": "pub",
   "generatorVersion": "3.6.0",
   "flutterRoot": "file:///Users/vishal/development/flutter",
